@@ -9,7 +9,9 @@
     "db:migrate": " deno --env drizzle-kit migrate"
   },
   "exports": {
-    ".": "./mod.ts"
+    ".": "./mod.ts",
+    "./schema": "./schema/mod.ts",
+    "./client": "./client.ts"
   },
   "imports": {
     "@types/pg": "npm:@types/pg@^8.20.0",
