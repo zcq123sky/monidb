@@ -22,6 +22,9 @@ tmp/
 temp/
 *.tmp
 
+# Node
+node_modules/
+
 # Drizzle
 # 本地生成的 SQL 快照如果不需要可以忽略
 drizzle/

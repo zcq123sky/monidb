@@ -1,7 +1,7 @@
 {
   "nodeModulesDir": "auto",
   "name": "@moly/monidb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "tasks": {
     "db:generate": "deno --env drizzle-kit generate",
