@@ -1,5 +1,6 @@
 {
   "nodeModulesDir": "auto",
+  "description": "pubilc but not commom,truth is my db package",
   "name": "@moly/monidb",
   "version": "0.1.9",
   "license": "MIT",
