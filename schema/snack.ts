@@ -6,9 +6,10 @@ import {
   serial,
   text,
   timestamp,
+  type PgTableWithColumns,
 } from "drizzle-orm/pg-core";
 
-export const snack = pgTable("snack", {
+const snackTable: Omit<PgTableWithColumns<any>, 'enableRLS'> = pgTable("snack", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description"),
@@ -21,3 +22,5 @@ export const snack = pgTable("snack", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 }).enableRLS();
+
+export const snack: typeof snackTable = snackTable;

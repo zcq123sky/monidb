@@ -6,9 +6,10 @@ import {
   serial,
   text,
   timestamp,
+  type PgTableWithColumns,
 } from "drizzle-orm/pg-core";
 
-export const beverage = pgTable("beverage", {
+const beverageTable: Omit<PgTableWithColumns<any>, 'enableRLS'> = pgTable("beverage", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description"),
@@ -21,3 +22,5 @@ export const beverage = pgTable("beverage", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 }).enableRLS();
+
+export const beverage: typeof beverageTable = beverageTable;
