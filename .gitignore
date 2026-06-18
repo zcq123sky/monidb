@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp
+tmp/
+temp/
+*.tmp
+
+# Drizzle
+# 本地生成的 SQL 快照如果不需要可以忽略
+drizzle/

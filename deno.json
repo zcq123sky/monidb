@@ -1,0 +1,18 @@
+{
+  "name": "monidb",
+  "version": "0.1.0",
+  "license": "MIT",
+  "tasks": {
+    "db:generate": "deno --env drizzle-kit generate",
+    "db:migrate": " deno --env drizzle-kit migrate"
+  },
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "imports": {
+    "@types/pg": "npm:@types/pg@^8.20.0",
+    "drizzle-kit": "npm:drizzle-kit@^0.31.10",
+    "drizzle-orm": "npm:drizzle-orm@^0.45.2",
+    "postgres": "npm:postgres@^3.4.9"
+  }
+}
