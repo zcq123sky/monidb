@@ -8,10 +8,11 @@ import {
   serial,
   text,
   timestamp,
+  type PgTableWithColumns,
 } from "drizzle-orm/pg-core";
 import { anonRole } from "drizzle-orm/supabase";
 
-const snackTable = pgTable("snack", {
+const snackTable: Omit<PgTableWithColumns<any>, 'enableRLS'> = pgTable("snack", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description"),
