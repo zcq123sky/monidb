@@ -1,15 +1,17 @@
+import { sql } from "drizzle-orm";
 import {
   boolean,
   integer,
   numeric,
+  pgPolicy,
   pgTable,
   serial,
   text,
   timestamp,
-  type PgTableWithColumns,
 } from "drizzle-orm/pg-core";
+import { anonRole } from "drizzle-orm/supabase";
 
-const snackTable: Omit<PgTableWithColumns<any>, 'enableRLS'> = pgTable("snack", {
+const snackTable = pgTable("snack", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description"),
@@ -21,6 +23,12 @@ const snackTable: Omit<PgTableWithColumns<any>, 'enableRLS'> = pgTable("snack", 
   isAvailable: boolean("is_available").default(true).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
-}).enableRLS();
+}, () => [
+  pgPolicy("anon_select_snack", {
+    for: "select",
+    to: anonRole,
+    using: sql`true`,
+  }),
+]).enableRLS();
 
 export const snack: typeof snackTable = snackTable;
