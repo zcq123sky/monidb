@@ -1,12 +1,12 @@
 {
-  "nodeModulesDir": "auto",
   "description": "pubilc but not commom,truth is my db package",
   "name": "@moly/monidb",
   "version": "0.2.2",
   "license": "MIT",
   "tasks": {
-    "db:generate": "deno --env drizzle-kit generate",
-    "db:migrate": " deno --env drizzle-kit migrate"
+    "db:generate": "deno -A --env drizzle-kit generate",
+    "db:migrate": " deno -A --env drizzle-kit migrate",
+    "db:seed": "deno -A --env seed.ts"
   },
   "exports": {
     ".": "./mod.ts",
